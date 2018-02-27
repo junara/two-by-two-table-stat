@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="49px" viewBox="0 0 50 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(1.000000, 1.000000)">
+            <g id="Group">
+                <rect id="Rectangle" stroke="#979797" x="0" y="4" width="43.9984062" height="43.3283597" rx="5"></rect>
+                <rect id="Rectangle" stroke="#979797" x="4" y="0" width="43.9984062" height="43.3283597" rx="5"></rect>
+                <text id="2-x-2-STAT" font-family="ArialRoundedMTBold, Arial Rounded MT Bold" font-size="12" font-weight="normal" letter-spacing="0.0003333333" fill="#9B9B9B">
+                    <tspan x="10.7423307" y="21">2 x 2</tspan>
+                    <tspan x="9.08722396" y="35">STAT</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
