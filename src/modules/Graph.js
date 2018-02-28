@@ -1,20 +1,25 @@
 import { blue, pink } from 'material-ui/colors'
 
+export const color = {
+  nonTreat: blue['500'],
+  treat: pink['500'],
+}
+
 export const data = (t = 10, nt = 10) => {
   return {
     labels: [
-      'Treat',
       'Non Treat',
+      'Treat',
     ],
     datasets: [{
-      data: [t, nt],
+      data: [nt, t],
       backgroundColor: [
-        pink['500'],
-        blue['500'],
+        color.nonTreat,
+        color.treat,
       ],
       hoverBackgroundColor: [
-        pink['500'],
-        blue['500'],
+        color.nonTreat,
+        color.treat,
       ],
     }],
   }
@@ -31,5 +36,6 @@ export const Graph = {
   data,
   legend,
   options,
+  color,
 }
 export default Graph

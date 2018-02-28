@@ -10,15 +10,15 @@ import {
   CardContent,
   Grid,
   withStyles,
+  ListSubheader,
 } from 'material-ui'
-import { Stat, Graph } from '../modules'
+import { Stat, Graph, } from '../modules'
 import { Doughnut } from 'react-chartjs-2'
-import ListSubheader from 'material-ui/List/ListSubheader'
-import List, { ListItem, ListItemText } from 'material-ui/List'
+import { CopyToClipboardButton, SendMailButton } from '../components'
 
 const styles = {
   sticky: {
-    top: 60,
+    top: 20,
   },
 }
 
@@ -27,9 +27,20 @@ class StatBody extends Component {
     const {caseTreatment, caseNonTreatment, controlTreatment, controlNonTreatment} = this.props
     const chiSq = Stat.chiSq({a: caseTreatment, b: caseNonTreatment, c: controlTreatment, d: controlNonTreatment})
     const chiP = Stat.chiP(chiSq)
+    const resultText = Stat.resultText({
+      a: caseTreatment,
+      b: caseNonTreatment,
+      c: controlTreatment,
+      d: controlNonTreatment,
+    })
     return (
       <div>
         <Card elevation={0}>
+          <Grid container justify={'flex-end'}>
+            <Grid item><SendMailButton body={resultText}/></Grid>
+            <Grid item><CopyToClipboardButton text={resultText}/></Grid>
+          </Grid>
+
           <CardContent>
             <ListSubheader classes={{sticky: this.props.classes.sticky}}>
               <Typography variant={'headline'}>
@@ -107,15 +118,6 @@ class StatBody extends Component {
                 検定結果
               </Typography>
             </ListSubheader>
-
-            <Grid container justify={'center'} spacing={0}>
-              <Grid item xs={12}>
-                <Grid container justify={'center'} spacing={0}>
-                  <Grid item><Typography variant={'body2'}>p=</Typography></Grid>
-                  <Grid item><Typography variant={'body2'}>{chiP}</Typography></Grid>
-                </Grid>
-              </Grid>
-            </Grid>
             <Grid container>
               <Grid item xs={6}>
                 <Grid container justify={'center'}>
@@ -135,6 +137,20 @@ class StatBody extends Component {
                 </Grid>
               </Grid>
             </Grid>
+            <Grid container justify={'center'} spacing={0}>
+              <Grid item xs={12}>
+                <Grid container justify={'center'} spacing={0}>
+                  <Grid item><Typography variant={'body2'}>p=</Typography></Grid>
+                  <Grid item><Typography variant={'body2'}>{chiP}</Typography></Grid>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Typography>
+                  {Stat.statSignificanceString(chiP)}
+                </Typography>
+              </Grid>
+            </Grid>
+
           </CardContent>
         </Card>
       </div>

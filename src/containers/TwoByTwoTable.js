@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatHeader, StatBody, StatForm } from './'
+import { StatHeader, StatBody, StatForm, StatFooter } from './'
 import {
   Grid,
 } from 'material-ui'
@@ -19,7 +19,7 @@ class TwoByTwoTable extends Component {
 
   scrollToForm = () => {
     scrollToComponent(this['form'], {
-      align: 'top',
+      align: 'bottom',
       duration: 1000,
     })
   }
@@ -33,7 +33,6 @@ class TwoByTwoTable extends Component {
     return (
       <div>
         <StatHeader/>
-
         <Grid container justify={'center'} spacing={0}>
           <Grid item xs={12} md={4}>
             <StatBody {...this.state}/>
@@ -45,8 +44,8 @@ class TwoByTwoTable extends Component {
             />
           </Grid>
         </Grid>
+        <StatFooter/>
       </div>
-
     )
   }
 }

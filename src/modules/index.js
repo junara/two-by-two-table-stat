@@ -1,2 +1,5 @@
 export { default as Stat } from './Stat'
 export { default as Graph } from './Graph'
+export { default as MyProfile } from './MyProfile'
+export { default as LocationHref } from './LocationHref'
+export { default as Site } from './Site'
